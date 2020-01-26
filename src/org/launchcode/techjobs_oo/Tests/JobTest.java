@@ -44,4 +44,18 @@ public class JobTest {
     public void testJobsForEquality() {
         assertFalse(thirdJob == thirdJobClone);
     }
+
+    @Test
+    public void testJobToString() {
+        assertEquals(thirdJob.toString(), "\nID: " + thirdJob.getId() + "\nName: " + thirdJob.getName() +
+                "\nEmployer: " + thirdJob.getEmployer() + "\nLocation: " + thirdJob.getLocation() + "\nPosition Type: " +
+                thirdJob.getPositionType() + "\nCore Competency: " + thirdJob.getCoreCompetency() + "\n");
+    }
+
+    @Test
+    public void testJobToStringEmptyField() {
+        assertEquals("\nID: " + firstJob.getId() + "\nName: " + "Data Not Available" +
+                "\nEmployer: " + "Data Not Available" + "\nLocation: " + "Data Not Available" + "\nPosition Type: " +
+                "Data Not Available" + "\nCore Competency: " + "Data Not Available" + "\n", firstJob.toString());
+    }
 }

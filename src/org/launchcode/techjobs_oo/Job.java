@@ -32,7 +32,18 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
@@ -80,16 +91,36 @@ public class Job {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id;
-    }
+    //TODO: Add the custom ToString method.
+    public String toString() {
+        String newName;
+        String newEmployer;
+        String newLocation;
+        String newPositionType;
+        String newCoreCompetency;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+        if (getName() == null) {
+            newName = "Data Not Available";
+        } else newName = getName();
+
+        if (getEmployer() == null) {
+             newEmployer = "Data Not Available";
+        } else newEmployer = getEmployer().getValue();
+
+        if (getLocation() == null) {
+            newLocation = "Data Not Available";
+        } else newLocation = getLocation().getValue();
+
+        if (getPositionType() == null) {
+            newPositionType = "Data Not Available";
+        } else newPositionType = getPositionType().getValue();
+
+        if (getCoreCompetency() == null) {
+            newCoreCompetency = "Data Not Available";
+        } else newCoreCompetency = getCoreCompetency().getValue();
+
+        return ("\nID: " + getId() + "\nName: " + newName + "\nEmployer: " + newEmployer +
+                "\nLocation: " + newLocation + "\nPosition Type: " +
+                newPositionType + "\nCore Competency: " + newCoreCompetency + "\n");
     }
 }
