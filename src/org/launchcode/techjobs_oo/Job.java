@@ -99,23 +99,23 @@ public class Job {
         String newPositionType;
         String newCoreCompetency;
 
-        if (getName() == null) {
+        if (getName() == null || getName().length() < 1) {
             newName = "Data Not Available";
         } else newName = getName();
 
-        if (getEmployer() == null) {
+        if (getEmployer() == null || getEmployer().getValue().length() < 1) {
              newEmployer = "Data Not Available";
         } else newEmployer = getEmployer().getValue();
 
-        if (getLocation() == null) {
+        if (getLocation() == null || getLocation().getValue().length() < 1) {
             newLocation = "Data Not Available";
         } else newLocation = getLocation().getValue();
 
-        if (getPositionType() == null) {
+        if (getPositionType() == null || getPositionType().getValue().length() < 1) {
             newPositionType = "Data Not Available";
         } else newPositionType = getPositionType().getValue();
 
-        if (getCoreCompetency() == null) {
+        if (getCoreCompetency() == null || getCoreCompetency().getValue().length() < 1) {
             newCoreCompetency = "Data Not Available";
         } else newCoreCompetency = getCoreCompetency().getValue();
 
